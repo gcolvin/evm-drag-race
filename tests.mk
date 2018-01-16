@@ -1,21 +1,21 @@
 #
 # this makefile can be use to build and run the entire suite 
 #
-#     make -f tests.mk SOLC=solc ETHVM=ethvm ETHVM-JIT=ethvm EVM=evm PARITY=parity-evm all
+#     make -f tests.mk ETHVM=ethvm ETHVM-JIT=ethvm EVM=evm PARITY=parity-evm all
 #
 # or build and run only a single test on a single VM
 #
-#     make -f tests.mk SOLC=solc ETHVM=ethvm pop.ran
+#     make -f tests.mk ETHVM=ethvm pop.ran
 #
 # or build but not run the entire suite 
 #
-#     make -f tests.mk SOLC=solc all
+#     make -f tests.mk all
 #
 # or many other such possibilities
 
 # the programs don't need to be at global scope
 #
-#     make -f tests.mk SOLC=solc ETHVM=../../../build/ethvm/ethvm all
+#     make -f tests.mk ETHVM=../../../build/ethvm/ethvm all
 
 # define a path to these programs on make command line to pick one or more of them to run
 # the default is to do nothing
@@ -26,10 +26,6 @@ endif
 ifdef PARITY
 	PARITY_ = $(call STATS,parity) $(PARITY) stats --gas 10000000000 --code `cat $*.bin`; touch $*.ran
 endif
-ifdef SOLC
-	SOLC_SOL_= $(SOLC) -o . --overwrite --optimize --asm --bin $*.sol 
-	SOLC_ASM_= $(SOLC) --assemble $*.asm | grep '^[0-9a-f]\+$\' > $*.bin
-endif
 ifdef ETHVM
 	ETHVM_ = $(call STATS,ethvm) $(ETHVM) test $*.bin; touch $*.ran
 endif
@@ -37,10 +33,7 @@ ifdef ETHVM-JIT
 	ETHVM_JIT_ = $(call STATS,ethvm-jit) $(ETHVM-JIT) --vm jit --timestamp 13 test $*.bin; touch $*.ran
 endif
 ifdef WASM
-	WASM_ = $(call STATS,C-wasm) $(WASM) ./$*.wasm; touch $*.wran
-endif
-ifdef WEVM
-	WEVM_ = $(call STATS,evm-wasm) $(WEVM) ./$*.bin; touch $*.wran
+	WASM_ = $(call STATS,wasm) $(WASM) ./$*.wasm; touch $*.wran
 endif
 
 # Macs ignore or reject --format parameter
@@ -73,26 +66,27 @@ STATS = echo $(1); time -p
 %.wran : %.wasm
 	$(call WASM_)
 
-%.wran : %.bin
-	$(call WEVM_)
-
 # hold on to intermediate binaries until source changes
 .PRECIOUS : %.bin %.wast %.wasm
 
 %.bin : %.asm
-	$(call SOLC_ASM_)
+	solc --assemble $*.asm | grep '^[0-9a-f]\+$\' > $*.bin
 
 %.bin : %.sol
-	$(call SOLC_SOL_)
+	solc -o . --overwrite --optimize --asm --bin $*.sol 
 
 %.wasm : %.c
-	emcc -s WASM=1 -O3 $*.c -o $*.html
+	emcc -s WASM=1 -O3 $*.c -o $*.js
 
 %.wasm : %.cpp
-	emcc -s WASM=1 -O3 -std=c++11 $*.cpp -o $*.html
+	emcc -s WASM=1 -O3 -std=c++11 $*.cpp -o $*.js
+
+%.wasm : %.bin
+	evm2wasm $*.bin > $*.wast
+	wat2wasm $*.wast -o $*.wasm
 
 
-all : ops programs C W
+all : ops programs C  # W
 
 # EVM assembly programs for timing individual operators
 #
@@ -173,7 +167,7 @@ W : \
 	pmulc.wran
 
 clean :
-	rm *.ran *.cran *.wran *.wast* *.wasm *.bin *.evm *.s mul64c poplnkc popincc
+	rm *.ran *.cran *.wran *.wast* *.wasm *c.js *.bin *.evm *.s mul64c poplnkc popincc
 	
 rerun :
 	rm *.ran
