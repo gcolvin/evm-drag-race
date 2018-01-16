@@ -1,5 +1,5 @@
 #
-# this makefile can be use to build and run the entire suite 
+# this makefile can be use to build and run the entire suite pn all VMs
 #
 #     make -f tests.mk ETHVM=ethvm ETHVM-JIT=ethvm EVM=evm PARITY=parity-evm all
 #
@@ -13,7 +13,7 @@
 #
 # or many other such possibilities
 
-# the programs don't need to be at global scope
+# the VM programs don't need to be at global scope
 #
 #     make -f tests.mk ETHVM=../../../build/ethvm/ethvm all
 
@@ -46,7 +46,7 @@ STATS = echo $(1); time -p
 #   *  add corresponding functions above
 #   *  add corresponding .ran targets below
 #
-# .ran files are just empty targets that indicate a program ran
+# ran files are just empty targets that indicate a program ran
 %.ran : %.bin
 	$(call EVM_)
 	$(call PARITY_)
