@@ -6,9 +6,9 @@ contract pmul {
     uint constant Y0 = 0xbd95ca60288bb093;
     uint constant K = 0x313eb2922b35d;
     uint constant N = 50;
-    uint out;
+    uint out = 0;
 
-    function pmul() {
+    function pmul() public {
         for (uint j = 0; j < 100000; ++j) {
             uint k = K + j;
             uint x = X0;
@@ -26,7 +26,8 @@ contract pmul {
                 x = newX;
                 y = newY;
             }    
+            out += x ^ y;
         }
-        out = x + y;
+        assert(out != 0);
     }
 }
