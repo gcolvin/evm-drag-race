@@ -5,31 +5,31 @@ exercise larger units, like kernels for random numnber generation and message en
 Running the tests can be handled indiviually at the command line, or with tests.mk.
 
 	make -f tests.mk [ETHVM=ethvm] [EVM=evm] [PARITY=parity-evm] \
-	                 [all | ops | programs | mul64 | <test>.bin | <test>.ran]
+	                [all | ops | programs | mul64 | <test>.bin | <test>.ran]
 
-Runs only the programs for which a path is provided on the command line to make the given
+> Runs only the programs for which a path is provided on the command line to make the given
 targets.  There is further documentation in tests.mk.
 
 We also provide a few python scripts to help make sense of the output.
 
 	log2csv.py
 	
-Converts a log file from tests.mk output from one or more clients into a .csv file
+> Converts a log file from tests.mk output from one or more clients into a .csv file
 suitable for use by spreadsheets.
 
 	csv2nano.py
 	
-Converts a .csv file from log2csv into another .csv file with the times scaled to
+> Converts a .csv file from log2csv into another .csv file with the times scaled to
 nanoseconds per test.
 
 	csv2gas.py
 	
-Converts a .csv file from log2csv into another .csv file with the times scaled to
+> Converts a .csv file from log2csv into another .csv file with the times scaled to
 nanoseconds per unit of gas.
 
 	csv2ops.py
 
-Converts a .csv file from log2csv into another .csv file with the times scaled to
+> Converts a .csv file from log2csv into another .csv file with the times scaled to
 nanoseconds per individual operation, with the estimated overhead from the interpreter
 and the test harness removed.
 
