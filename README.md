@@ -7,15 +7,13 @@ Running the tests can be handled indiviually at the command line, or with tests.
 	make -f tests.mk [ETHVM=ethvm] [EVM=evm] [PARITY=parity-evm] \
 	                [all | ops | programs | mul64 | <test>.bin | <test>.ran]
 
-> Runs only the programs for which a path is provided on the command line to make the given
-targets.  There is further documentation in tests.mk.
+> Runs only the programs for which a path is provided on the command line to make the given targets.  There is further documentation in tests.mk.
 
 We also provide a few python scripts to help make sense of the output.
 
 	log2csv.py
 	
-> Converts a log file from tests.mk output from one or more clients into a .csv file
-suitable for use by spreadsheets.
+> Converts a log file from tests.mk output from one or more clients into a .csv file suitable for use by spreadsheets.
 
 	csv2nano.py
 	
