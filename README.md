@@ -1,5 +1,5 @@
 This directory contains a small collection of EVM assembly and Solidity performance tests
-originally written for tuning the cpp-ethereum interpreted and for presentation at DevCon3.
+originally written for tuning the cpp-ethereum interpreter and for presentation at DevCon3.
 They are not being maintained at this time.
 
 The .asm tests are meant to isolate individual opcodes.  The .sol tests are meant to
