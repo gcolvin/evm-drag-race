@@ -1,6 +1,10 @@
-This directory contains a small collection of EVM assembly and Solidity performance tests.
+This directory contains a small collection of EVM assembly and Solidity performance tests
+originally written for tuning the cpp-ethereum interpreted and for presentation at DevCon3.
+They are not being maintained at this time.
+
 The .asm tests are meant to isolate individual opcodes.  The .sol tests are meant to
-exercise larger units, like kernels for random numnber generation and message encryption.
+exercise larger units, like kernels for random number generation and message encryption.
+For many of the tests a corresponding C or C++ version is provided as well. 
 
 Running the tests can be handled indiviually at the command line, or with tests.mk.
 
