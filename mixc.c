@@ -38,7 +38,7 @@ static uint64_t m[16] = {
 	0x807ce600be072f3d
 };
 
-static uint64_t ror(uint64_t v, int n) {
+inline uint64_t ror(uint64_t v, int n) {
 	return v >> n | v << (32 - n);
 }
 
@@ -59,7 +59,7 @@ static int mix(int i) {
 
 	v[0] += i;
 
-	// loop over inner mixing block of BLAKE2B compression function with arbitrary input
+	// loop over inner mixing block of BLAKE2B compression function with pseudorandom input
 	for (int i=0; i < 10000; ++i) {
 
 		G(0, 4, 8, 12, m[0], m[1]);
