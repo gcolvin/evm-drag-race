@@ -24,7 +24,7 @@ contract rng {
 				bbs %= shub;
 				blum = bbs;				
 				
-				out[j] ^= uint8((mix ^= bbs) & 255);
+				out[j] ^= uint8((mix += bbs) & 255);
 			}	
 		}
 		log0(bytes32(out));
