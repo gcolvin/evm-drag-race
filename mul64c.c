@@ -3,7 +3,7 @@
 int main() {
 	uint64_t s = 0xd;
 	uint64_t r;
-	for (uint64_t i = 0; i < 1048576*1000; ++i) {
+	for (uint64_t i = 0; i < 1048576*100; ++i) {
 		volatile unsigned v = 0;
 		uint64_t z = s + v;
 		uint64_t y = 0xd;

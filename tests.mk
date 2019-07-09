@@ -1,11 +1,11 @@
 #
 # this makefile can be use to build and run the entire suite pn all VMs
 #
-#     make -f tests.mk ETHVM=ethvm ETHVM-JIT=ethvm EVM=evm PARITY=parity-evm all
+#     make -f tests.mk ALETH=aleth EVMONE=path-to-evmone GETH=evm PARITY=parity-evm all
 #
 # or build and run only a single test on a single VM
 #
-#     make -f tests.mk ETHVM=ethvm pop.ran
+#     make -f tests.mk ALETH=aleth pop.ran
 #
 # or build but not run the entire suite 
 #
@@ -15,30 +15,28 @@
 
 # the VM programs don't need to be at global scope
 #
-#     make -f tests.mk ETHVM=../../../build/ethvm/ethvm all
+#     make -f tests.mk ALETH=../../../build/aleth/aleth all
 
 # define a path to these programs on make command line to pick one or more of them to run
 # the default is to do nothing
 #
-ifdef EVM
-	EVM_ = $(call STATS,evm) $(EVM) --codefile $*.bin run; touch $*.ran
+ifdef GETH
+	GETH_ = $(call STATS,geth,$*) $(GETH) --codefile $*.bin  --statdump run 2>&1 touch $*.ran
 endif
 ifdef PARITY
-	PARITY_ = $(call STATS,parity) $(PARITY) stats --gas 10000000000 --code `cat $*.bin`; touch $*.ran
+	PARITY_ = $(call STATS,parity,$*) $(PARITY) stats --gas 10000000000 --code `cat $*.bin`; touch $*.ran
 endif
-ifdef ETHVM
-	ETHVM_ = $(call STATS,ethvm) $(ETHVM) test $*.bin; touch $*.ran
+ifdef ALETH
+	ALETH_ = $(call STATS,aleth,$*) $(ALETH) --vm interpreter test $*.bin; touch $*.ran
 endif
-ifdef ETHVM-JIT
-	ETHVM_JIT_ = $(call STATS,ethvm-jit) $(ETHVM-JIT) --vm jit --timestamp 13 test $*.bin; touch $*.ran
+ifdef EVMONE
+	EVMONE_ = $(call STATS,evmone,$*) $(ALETH) --vm $(EVMONE) test $*.bin; touch $*.ran
 endif
 ifdef WASM
-	WASM_ = $(call STATS,wasm) $(WASM) ./$*.wasm; touch $*.wran
+	WASM_ = $(call STATS,wasm,$*) $(WASM) ./$*.wasm; touch $*.wran
 endif
 
-# Macs ignore or reject --format parameter
-#STATS = time --format "stats: $(1) $* %U %M"
-STATS = echo $(1); time -p
+STATS = echo $(1) $(2) 1>&2 ; time -p
 
 #
 # to support new clients
@@ -48,20 +46,20 @@ STATS = echo $(1); time -p
 #
 # ran files are just empty targets that indicate a program ran
 %.ran : %.bin
-	$(call EVM_)
+	$(call GETH_)
 	$(call PARITY_)
-	$(call ETHVM_)
-	$(call ETHVM_JIT_)
+	$(call ALETH_)
+	$(call EVMONE_)
 
 %.cran : %.c
 	gcc -O3 -S -I . $*.c
 	gcc -o $* $*.s
-	$(call STATS,C) ./$*; touch $*.cran
+	$(call STATS,C,$*) ./$*; touch $*.cran
 	
 %.cran : %.cpp
 	g++ -O3 -S -std=c++11 -I . $*.cpp
 	g++ -o $* $*.s
-	$(call STATS,C) ./$*; touch $*.cran
+	$(call STATS,C,$*) ./$*; touch $*.cran
 	
 %.wran : %.wasm
 	$(call WASM_)
@@ -97,16 +95,6 @@ all : ops programs C  # W
 #   * (t(OP) - (t(pop) + t(nop))/2)/N = estimated time per OP, less all overhead
 # for all tests except exp N = 2**27, for exp N=2**17 and the last formula gets trickier
 ops : \
-	add256.ran \
-	sub256.ran \
-	mul256.ran \
-	div256.ran \
-	exp.ran \
-	add256c.cran \
-	sub256c.cran \
-	mul256c.cran \
-	div256c.cran \
-	expc.cran \
 	nop.ran \
 	pop.ran \
 	add64.ran \
@@ -132,11 +120,18 @@ programs : \
 	rc5.ran \
 	mix.ran
 
-# C versions for comparison
+# C/C++ versions for comparison
+# note that except for mul64.c these use a different library than the EVM version
+# so results are not entirely comparable
 C : \
 	popincc.cran \
 	poplnkc.cran \
 	mul64c.cran \
+	add256c.cran \
+	sub256c.cran \
+	mul256c.cran \
+	div256c.cran \
+	expc.cran \
 	func.cran \
 	rc5c.cran \
 	mixc.cran \

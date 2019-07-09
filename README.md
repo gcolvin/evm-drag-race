@@ -1,14 +1,9 @@
-This directory contains a small collection of EVM assembly and Solidity performance tests
-originally written for tuning the cpp-ethereum interpreter and for
-[presentation](https://github.com/gcolvin/evm-drag-race/blob/master/time-vs-gas.pdf) at DevCon3.
-They are out of date with the current clients, which I'm cleaning up as a low-priority
-task, but I'm happy to help get them working for your needs if you ask me.
+This directory contains a small collection of EVM assembly and Solidity performance tests originally written for tuning the cpp-ethereum interpreter and for
+[presentation at DevCon3](https://github.com/gcolvin/evm-drag-race/blob/master/time-vs-gas.pdf).  They are out of date with the current clients, which I'm cleaning up as a low-priority task, but I'm happy to help get them working for your needs if you ask me.
 
-The .asm tests are meant to isolate individual opcodes.  The .sol tests are meant to
-exercise larger units, like kernels for random number generation and message encryption.
-For many of the tests a corresponding C or C++ version is provided as well. 
+The .asm tests are meant to isolate individual opcodes.  The .sol tests are meant to exercise larger units, like kernels for random number generation and message encryption.  For many of the tests a corresponding C or C++ version is provided as well. 
 
-Running the tests can be handled indiviually at the command line, or with tests.mk.
+Running the tests can be handled indiviually at the command line, or with the rather curious tests.mk.
 
 	make -f tests.mk [ETHVM=ethvm] [EVM=evm] [PARITY=parity-evm] \
 	                [all | ops | programs | mul64 | <test>.bin | <test>.ran]
@@ -33,9 +28,7 @@ nanoseconds per unit of gas.
 
 	csv2ops.py
 
-> Converts a .csv file from log2csv into another .csv file with the times scaled to
-nanoseconds per individual operation, with the estimated overhead from the interpreter
-and the test harness removed.
+> Converts a .csv file from log2csv into another .csv file with the times scaled to nanoseconds per individual operation, with the estimated overhead from the interpreter and the test harness removed.
 
 An example of a complete run follows.
 

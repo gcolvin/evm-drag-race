@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity *.*.*;
 
 contract pmul {
 
@@ -8,7 +8,7 @@ contract pmul {
     uint constant N = 50;
     uint out = 0;
 
-    function pmul() public {
+    constructor() public {
         for (uint j = 0; j < 100000; ++j) {
             uint k = K + j;
             uint x = X0;

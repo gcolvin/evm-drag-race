@@ -1,41 +1,32 @@
 #include "ttmath/ttmath.h"
 
-typedef ttmath::UInt<TTMATH_BITS(256)> u256;
+typedef ttmath::UInt<TTMATH_BITS(256)> uint256;
 
-// 2**20 tests
-int main() {
+int main(int argc, char **argv) {
 
-	// magic seeds
-	u256 shub = 0xbf4081282dfa56a3;
-	shub *= 0xa5b708b0c35cd0a5;
-	shub *= 0xa272a20711dc7819;
-	shub *= 0xa218939391d9bb23;
+   // force indeterminate output
+   uint256 out[32];
+   uint256 mix = argc;
 
-	u256 blum[5] = { 
-		0xa67e7b7edc1b7859,
-		0xf446feafddc24db7,
-		0x9e110a193cb96c5d,
-		0xc21abeddad8a1085
-	};
+   // magic seeds
+   //    blum is product of primes congruent to 3 mod 4
+   //    shub is prime (and must be coprime to p and q)
+   uint256 p = 0xbfb9e9cfa0a26397;
+   uint256 q = 0xf965dcb10cd35adb;
+   uint256 blum = p * q;
+   uint256 shub = 0xfdf63130357d68d7;
 
-	// force memory access
-	volatile unsigned char out[5][32];
-
-	blum[0] = 0;
-	for (int i = 0; i < 32768; ++i) {
-
-		// need 32 bytes of output for each log argument
-		for (int j = 0; j < 32; ++j) {
-		
-			// harvest low order byte of 5 Blum Blum Shubs for 5-word log output
-			for (int l = 0; l < 5; ++l) {		
-				u256 bbs = blum[l];
-				bbs *= bbs;
-				bbs %= shub;
-				blum[l] = bbs;
-				out[l][j] = bbs.ToUInt() & 0x255;
-			}
-		}
-	}
-	return out[4][31];
+   for (uint256 i = 0; i < 4096; ++i) {
+      uint256 bbs = 0;
+      int j;
+      for (j = 0; j < 256; ++j) {
+         blum *= blum;
+         blum %= shub;
+         bbs |= blum & 1;
+         bbs << 1;
+      }
+      out[j] = bbs;
+      mix = out[bbs.ToUInt() % 32];
+   }
+   return mix.ToUInt();
 }

@@ -1,6 +1,6 @@
 {
 	let r := 0
-	for { let i := 0 } lt(i, 1048576) { i := add(i, 1) } {
+	for { let i := 0 } lt(i, 1000000) { i := add(i, 1) } {
 
 		0xfdedc7f10142ff97
 		0xfbdfda0e2ce356173d1993d5f70a2b11

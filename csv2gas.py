@@ -28,20 +28,25 @@ for line in sys.stdin:
 # print extended header
 sys.stdout.write("(ns/gas)")
 for client in clients:
-	if client == 'gas':
-		continue
 	sys.stdout.write(", " + client)
 sys.stdout.write("\n")
 
 # nanos = ns/gas is run time scaled by amount of gas
 # print the test, gas, nanos ...
+gas_per_pop = int(data['pop']['gas'])
 for test in tests:
+	if test in ['nop', 'pop']:
+		continue
 	sys.stdout.write(test)
-	gas_per_run = float(data[test]['gas'])
 	for client in clients:
 		if client == 'gas':
+			gas_per_test = int(data[test]['gas'])
+			gas_per_test -= gas_per_pop
+			sys.stdout.write(", %d" % gas_per_test)
 			continue
-		run_nanos = float(data[test][client])*10**9
-		nanos_per_gas = int(run_nanos/gas_per_run + .5)
-		sys.stdout.write(", %d" % nanos_per_gas)
+		nanos_per_test = float(data[test][client])*10**9
+		nanos_per_pops = float(data['pop'][client])*10**9
+		nanos_per_test -= nanos_per_pops
+		nanos_per_gas = nanos_per_test/gas_per_test
+		sys.stdout.write(", %.2f" % nanos_per_gas)
 	sys.stdout.write("\n")

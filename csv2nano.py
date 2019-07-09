@@ -27,28 +27,30 @@ for line in sys.stdin:
 		data[test][client] = second
 
 # print extended header
-sys.stdout.write("(ns/test)")
+sys.stdout.write("(ns/loop)")
 for client in clients:
 	sys.stdout.write(", " + client)
 sys.stdout.write("\n")
 
-# ns/test is run time scaled by number of operations
+# ns/loop is run time scaled by number of loops
 # print the test, gas, nanos, ...
-N_ops = 2**27
-N_app = 2**20
-N = 0
+N_ops = 1000000
+N_exp = 30000;
+N_app = 1000000
 for test in tests:
 	sys.stdout.write(test)
 	if test in ['nop', 'pop', 'add64', 'add128', 'add256', 'sub64', 'sub128', 'sub256',
-	            'mul64', 'mul128', 'mul256', 'div64', 'div128', 'div256']:
+					'mul64', 'mul128', 'mul256', 'div64', 'div128', 'div256', 'exp']:
 		N = N_ops
+	elif test is 'exp':
+		N = N_exp
 	else:
 		N = N_app
 	for client in clients:
 		if client == 'gas':
-			gas_per_test = int(float(data[test][client])/N + .5)
-			sys.stdout.write(", %d" % gas_per_test)
+			gas_per_loop = int(float(data[test][client])/N + .5)
+			sys.stdout.write(", %d" % gas_per_loop)
 			continue
-		nanos_per_test = int(float(data[test][client])*10**9/N + .5)
-		sys.stdout.write(", %d" % nanos_per_test)
+		nanos_per_loop = float(data[test][client])*10**9/N
+		sys.stdout.write(", %.2f" % nanos_per_loop)
 	sys.stdout.write("\n")

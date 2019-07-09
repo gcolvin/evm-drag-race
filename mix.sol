@@ -1,9 +1,9 @@
-pragma solidity ^0.4.0;
+pragma solidity *.*.*;
 
 contract mix {
 
 	// Mixing Function G from BLAKE2B
-	function G(uint64[16] v, uint a, uint b, uint c, uint d, uint64 x, uint64 y) constant internal {
+	function G(uint64[16] memory v, uint a, uint b, uint c, uint d, uint64 x, uint64 y) pure internal {
 
 		// Dereference to decrease memory reads
 		uint64 va = v[a];
@@ -37,7 +37,7 @@ contract mix {
 		v[d] = vd;
 	}
 
-	function mix() {
+	constructor() public {
 
 		uint64[16] memory v = [
 			0xb8dab0e6dad09901,

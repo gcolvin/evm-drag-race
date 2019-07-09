@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity *.*.*;
 
 // https://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 
@@ -6,25 +6,25 @@ contract rc5 {
 
 	// don't I wish we had opcodes and operators for these
 	
-	function shift_left(uint32 v, uint32 n) internal returns (uint32) {
-		return v *= uint32(2)**n;
+	function shift_left(uint32 v, uint32 n) pure internal returns (uint32) {
+      return v >> n;
 	}
 
-	function shift_right(uint32 v, uint32 n) internal returns (uint32) {
-		return v *= uint32(2)**n;
+	function shift_right(uint32 v, uint32 n) pure internal returns (uint32) {
+      return v >> n;
 	}
 	
-	function rotate_left(uint32 v, uint32 n) internal returns (uint32) {
+	function rotate_left(uint32 v, uint32 n) pure internal returns (uint32) {
 		n &= 0x1f;
 		return shift_left(v, n) | shift_right(v, 32 - n);
 	}
 	
-	function rotate_right(uint32 v, uint32 n) internal returns (uint32) {
+	function rotate_right(uint32 v, uint32 n) pure internal returns (uint32) {
 		n &= 0x1f;
 		return shift_right(v, n) | shift_left(v, 32 - n);
 	}
 
-	function encrypt(uint32[26] S, uint32[4] inout) {
+	function encrypt(uint32[26] memory S, uint32[4] memory inout) pure internal {
 		for (uint32 i = 0; i < 4; i += 2) {
 			uint32 A = inout[i];
 			uint32 B = inout[i+1];
@@ -39,7 +39,7 @@ contract rc5 {
 		}
 	}
 
-	function decrypt(uint32[26] S, uint32[4] inout) {
+	function decrypt(uint32[26] memory S, uint32[4] memory inout) pure internal {
 		for (uint32 i = 0; i < 4; i += 2) {
 			uint32 A = inout[i];
 			uint32 B = inout[i+1];
@@ -55,7 +55,7 @@ contract rc5 {
 	}
 	
 	// expand key into S array using magic numbers derived from e and phi	
-	function expand(uint32[4] L, uint32[26] S) {
+	function expand(uint32[4] memory L, uint32[26] memory S) pure internal {
 		uint32 A = 0;
 		uint32 B = 0;
 		uint32 i = 0;
@@ -74,7 +74,7 @@ contract rc5 {
 	}
 
 	// decrypt of encrypt should be the same
-	function test(uint32[26] S, uint32[4] messg) {
+	function test(uint32[26] memory S, uint32[4] memory messg) pure internal {
 		uint32[4] memory tmp = messg;
 		encrypt(S, tmp);
 		decrypt(S, tmp);
@@ -83,7 +83,7 @@ contract rc5 {
 		}
 	}
 
-	function rc5() {
+	constructor() public {
 
 		uint32[4] memory key = [0x243F6A88, 0x85A308D3, 0x452821E6, 0x38D01377];
 		uint32[26] memory box;
