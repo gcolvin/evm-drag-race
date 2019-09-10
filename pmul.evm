@@ -1,0 +1,214 @@
+    /* "pmul.sol":24:914  contract pmul {... */
+  mstore(0x40, 0x80)
+    /* "pmul.sol":207:208  0 */
+  0x00
+    /* "pmul.sol":196:208  uint out = 0 */
+  dup1
+  sstore
+    /* "pmul.sol":215:912  constructor() public {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+  pop
+    /* "pmul.sol":251:257  uint j */
+  0x00
+    /* "pmul.sol":246:880  for (uint j = 0; j < 100000; ++j) {... */
+tag_4:
+    /* "pmul.sol":267:273  100000 */
+  0x0186a0
+    /* "pmul.sol":263:264  j */
+  dup2
+    /* "pmul.sol":263:273  j < 100000 */
+  lt
+    /* "pmul.sol":246:880  for (uint j = 0; j < 100000; ++j) {... */
+  iszero
+  tag_5
+  jumpi
+    /* "pmul.sol":149:164  0x313eb2922b35d */
+  0x0313eb2922b35d
+    /* "pmul.sol":303:308  K + j */
+  dup2
+  add
+    /* "pmul.sol":64:82  0xeb1342f02d62f9e7 */
+  0xeb1342f02d62f9e7
+    /* "pmul.sol":107:125  0xbd95ca60288bb093 */
+  0xbd95ca60288bb093
+    /* "pmul.sol":386:391  N - 2 */
+  0x30
+    /* "pmul.sol":372:840  for (uint i = N - 2; i > 0; --i) {... */
+tag_7:
+    /* "pmul.sol":393:398  i > 0 */
+  dup1
+  iszero
+    /* "pmul.sol":372:840  for (uint i = N - 2; i > 0; --i) {... */
+  tag_8
+  jumpi
+    /* "pmul.sol":444:445  2 */
+  0x02
+    /* "pmul.sol":432:433  3 */
+  0x03
+    /* "pmul.sol":432:441  3 * x * x */
+  dup5
+  dup1
+  mul
+  mul
+    /* "pmul.sol":432:445  3 * x * x / 2 */
+  dup2
+  swap1
+  div
+    /* "pmul.sol":432:449  3 * x * x / 2 * y */
+  dup4
+  mul
+  swap1
+    /* "pmul.sol":487:492  2 * x */
+  dup5
+  mul
+    /* "pmul.sol":479:484  L * L */
+  dup2
+  dup1
+  mul
+    /* "pmul.sol":479:492  L * L - 2 * x */
+  sub
+    /* "pmul.sol":527:535  x - newX */
+  dup1
+  dup6
+  sub
+    /* "pmul.sol":522:536  L * (x - newX) */
+  dup3
+  mul
+    /* "pmul.sol":522:540  L * (x - newX) - x */
+  dup6
+  swap1
+  sub
+    /* "pmul.sol":562:567  k * i */
+  dup4
+  dup8
+  mul
+    /* "pmul.sol":571:572  1 */
+  0x01
+    /* "pmul.sol":562:572  k * i == 1 */
+  eq
+    /* "pmul.sol":558:774  if (k * i == 1) {... */
+  iszero
+  tag_11
+  jumpi
+    /* "pmul.sol":613:617  newX */
+  dup2
+    /* "pmul.sol":609:610  x */
+  dup7
+    /* "pmul.sol":609:617  x - newX */
+  sub
+    /* "pmul.sol":605:606  x */
+  dup7
+    /* "pmul.sol":601:602  y */
+  dup7
+    /* "pmul.sol":601:606  y - x */
+  sub
+    /* "pmul.sol":600:618  (y - x)/(x - newX) */
+  dup2
+  tag_12
+  jumpi
+  invalid
+tag_12:
+  div
+  swap3
+  pop
+    /* "pmul.sol":685:690  L * L */
+  dup3
+  dup1
+  mul
+    /* "pmul.sol":685:697  L * L - newX */
+  dup3
+  swap1
+  sub
+    /* "pmul.sol":685:701  L * L - newX - x */
+  dup7
+  swap1
+  sub
+  swap2
+    /* "pmul.sol":735:746  xTmp - newX */
+  dup3
+  swap1
+  sub
+    /* "pmul.sol":730:748  L * (xTmp - newX ) */
+  dup4
+  mul
+    /* "pmul.sol":730:755  L * (xTmp - newX ) - newY */
+  sub
+    /* "pmul.sol":558:774  if (k * i == 1) {... */
+tag_11:
+    /* "pmul.sol":795:799  newX */
+  swap1
+  swap5
+  pop
+    /* "pmul.sol":821:825  newY */
+  swap3
+  pop
+  pop
+  not(0x00)
+    /* "pmul.sol":400:403  --i */
+  add
+    /* "pmul.sol":372:840  for (uint i = N - 2; i > 0; --i) {... */
+  jump(tag_7)
+tag_8:
+  pop
+    /* "pmul.sol":857:860  out */
+  0x00
+    /* "pmul.sol":857:869  out += x ^ y */
+  dup1
+  sload
+    /* "pmul.sol":864:869  x ^ y */
+  swap2
+  swap1
+  swap3
+  xor
+    /* "pmul.sol":857:869  out += x ^ y */
+  add
+  swap1
+  sstore
+  pop
+  0x01
+    /* "pmul.sol":275:278  ++j */
+  add
+    /* "pmul.sol":246:880  for (uint j = 0; j < 100000; ++j) {... */
+  jump(tag_4)
+tag_5:
+  pop
+    /* "pmul.sol":896:899  out */
+  sload(0x00)
+    /* "pmul.sol":889:905  assert(out != 0) */
+  tag_13
+  jumpi
+  invalid
+tag_13:
+    /* "pmul.sol":24:914  contract pmul {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "pmul.sol":24:914  contract pmul {... */
+      mstore(0x40, 0x80)
+      0x00
+      dup1
+      revert
+
+    auxdata: 0xa265627a7a7230582023e112579bdb67289aa42db37d3935a51771809ebf2fca03543c0737d531c4e864736f6c63430005090032
+}

@@ -1,0 +1,1248 @@
+    /* "rc5.sol":82:2414  contract rc5 {... */
+  mstore(0x40, 0x80)
+    /* "rc5.sol":2132:2412  constructor() public {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+    /* "rc5.sol":2132:2412  constructor() public {... */
+  pop
+    /* "rc5.sol":2158:2178  uint32[4] memory key */
+  tag_4
+  tag_5
+  jump	// in
+tag_4:
+  pop
+    /* "rc5.sol":2158:2229  uint32[4] memory key = [0x243F6A88, 0x85A308D3, 0x452821E6, 0x38D01377] */
+  0x40
+  dup1
+  mload
+  0x80
+  dup2
+  add
+  dup3
+  mstore
+    /* "rc5.sol":2182:2192  0x243F6A88 */
+  0x243f6a88
+    /* "rc5.sol":2158:2229  uint32[4] memory key = [0x243F6A88, 0x85A308D3, 0x452821E6, 0x38D01377] */
+  dup2
+  mstore
+    /* "rc5.sol":2194:2204  0x85A308D3 */
+  0x85a308d3
+    /* "rc5.sol":2158:2229  uint32[4] memory key = [0x243F6A88, 0x85A308D3, 0x452821E6, 0x38D01377] */
+  0x20
+  dup3
+  add
+  mstore
+    /* "rc5.sol":2206:2216  0x452821E6 */
+  0x452821e6
+    /* "rc5.sol":2158:2229  uint32[4] memory key = [0x243F6A88, 0x85A308D3, 0x452821E6, 0x38D01377] */
+  swap2
+  dup2
+  add
+  swap2
+  swap1
+  swap2
+  mstore
+    /* "rc5.sol":2218:2228  0x38D01377 */
+  0x38d01377
+    /* "rc5.sol":2158:2229  uint32[4] memory key = [0x243F6A88, 0x85A308D3, 0x452821E6, 0x38D01377] */
+  0x60
+  dup3
+  add
+  mstore
+    /* "rc5.sol":2233:2254  uint32[26] memory box */
+  tag_6
+  tag_7
+  jump	// in
+tag_6:
+    /* "rc5.sol":2258:2274  expand(key, box) */
+  tag_8
+    /* "rc5.sol":2265:2268  key */
+  dup3
+    /* "rc5.sol":2270:2273  box */
+  dup3
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":2258:2264  expand */
+  tag_9
+    /* "rc5.sol":2258:2274  expand(key, box) */
+  and
+  jump	// in
+tag_8:
+    /* "rc5.sol":2279:2301  uint32[4] memory messg */
+  tag_10
+  tag_5
+  jump	// in
+tag_10:
+  pop
+    /* "rc5.sol":2279:2352  uint32[4] memory messg = [0xfeedface, 0xdeadbeef, 0xfeedbabe, 0xcafebeef] */
+  0x40
+  dup1
+  mload
+  0x80
+  dup2
+  add
+  dup3
+  mstore
+    /* "rc5.sol":2305:2315  0xfeedface */
+  0xfeedface
+    /* "rc5.sol":2279:2352  uint32[4] memory messg = [0xfeedface, 0xdeadbeef, 0xfeedbabe, 0xcafebeef] */
+  dup2
+  mstore
+    /* "rc5.sol":2317:2327  0xdeadbeef */
+  0xdeadbeef
+    /* "rc5.sol":2279:2352  uint32[4] memory messg = [0xfeedface, 0xdeadbeef, 0xfeedbabe, 0xcafebeef] */
+  0x20
+  dup3
+  add
+  mstore
+    /* "rc5.sol":2329:2339  0xfeedbabe */
+  0xfeedbabe
+    /* "rc5.sol":2279:2352  uint32[4] memory messg = [0xfeedface, 0xdeadbeef, 0xfeedbabe, 0xcafebeef] */
+  swap2
+  dup2
+  add
+  swap2
+  swap1
+  swap2
+  mstore
+    /* "rc5.sol":2341:2351  0xcafebeef */
+  0xcafebeef
+    /* "rc5.sol":2279:2352  uint32[4] memory messg = [0xfeedface, 0xdeadbeef, 0xfeedbabe, 0xcafebeef] */
+  0x60
+  dup3
+  add
+  mstore
+  0x00
+    /* "rc5.sol":2357:2408  for (int i = 0; i < 50000; ++i)... */
+tag_11:
+    /* "rc5.sol":2377:2382  50000 */
+  0xc350
+    /* "rc5.sol":2373:2374  i */
+  dup2
+    /* "rc5.sol":2373:2382  i < 50000 */
+  slt
+    /* "rc5.sol":2357:2408  for (int i = 0; i < 50000; ++i)... */
+  iszero
+  tag_12
+  jumpi
+    /* "rc5.sol":2392:2408  test(box, messg) */
+  tag_14
+    /* "rc5.sol":2397:2400  box */
+  dup4
+    /* "rc5.sol":2402:2407  messg */
+  dup4
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":2392:2396  test */
+  tag_15
+    /* "rc5.sol":2392:2408  test(box, messg) */
+  and
+  jump	// in
+tag_14:
+    /* "rc5.sol":2384:2387  ++i */
+  0x01
+  add
+    /* "rc5.sol":2357:2408  for (int i = 0; i < 50000; ++i)... */
+  jump(tag_11)
+tag_12:
+  pop
+    /* "rc5.sol":2132:2412  constructor() public {... */
+  pop
+  pop
+  pop
+    /* "rc5.sol":82:2414  contract rc5 {... */
+  jump(tag_16)
+    /* "rc5.sol":1458:1860  function expand(uint32[4] memory L, uint32[26] memory S) pure internal {... */
+tag_9:
+    /* "rc5.sol":1604:1614  0xb7e15163 */
+  0xb7e15163
+    /* "rc5.sol":1597:1614  S[0] = 0xb7e15163 */
+  dup2
+  mstore
+    /* "rc5.sol":1533:1541  uint32 A */
+  0x00
+  dup1
+    /* "rc5.sol":1627:1628  1 */
+  0x01
+    /* "rc5.sol":1533:1541  uint32 A */
+  dup2
+    /* "rc5.sol":1618:1674  for (i = 1; i < 26; ++i)... */
+tag_19:
+    /* "rc5.sol":1634:1636  26 */
+  0x1a
+    /* "rc5.sol":1630:1631  i */
+  dup3
+    /* "rc5.sol":1630:1636  i < 26 */
+  0xffffffff
+  and
+  lt
+    /* "rc5.sol":1618:1674  for (i = 1; i < 26; ++i)... */
+  iszero
+  tag_20
+  jumpi
+    /* "rc5.sol":1653:1654  S */
+  dup5
+    /* "rc5.sol":1659:1660  1 */
+  0x01
+    /* "rc5.sol":1655:1656  i */
+  dup4
+    /* "rc5.sol":1655:1660  i - 1 */
+  sub
+    /* "rc5.sol":1653:1661  S[i - 1] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_22
+  jumpi
+  invalid
+tag_22:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":1664:1674  0x9e3779b9 */
+  0x9e3779b9
+    /* "rc5.sol":1653:1674  S[i - 1] + 0x9e3779b9 */
+  add
+    /* "rc5.sol":1646:1647  S */
+  dup6
+    /* "rc5.sol":1648:1649  i */
+  dup4
+    /* "rc5.sol":1646:1650  S[i] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_23
+  jumpi
+  invalid
+tag_23:
+    /* "rc5.sol":1646:1674  S[i] = S[i - 1] + 0x9e3779b9 */
+  0xffffffff
+  swap1
+  swap3
+  and
+    /* "rc5.sol":1646:1650  S[i] */
+  0x20
+  swap3
+  swap1
+  swap3
+  mul
+  add
+    /* "rc5.sol":1646:1674  S[i] = S[i - 1] + 0x9e3779b9 */
+  mstore
+    /* "rc5.sol":1638:1641  ++i */
+  0x01
+  swap1
+  swap2
+  add
+  swap1
+    /* "rc5.sol":1618:1674  for (i = 1; i < 26; ++i)... */
+  jump(tag_19)
+tag_20:
+  pop
+    /* "rc5.sol":1686:1687  0 */
+  0x00
+  swap1
+  pop
+  dup1
+    /* "rc5.sol":1699:1703  3*26 */
+  0x4e
+    /* "rc5.sol":1707:1857  while (n-- > 0) {... */
+tag_24:
+  not(0x00)
+    /* "rc5.sol":1714:1717  n-- */
+  dup2
+  add
+  swap1
+    /* "rc5.sol":1720:1721  0 */
+  0x00
+  slt
+    /* "rc5.sol":1707:1857  while (n-- > 0) {... */
+  iszero
+  tag_25
+  jumpi
+    /* "rc5.sol":1739:1769  rotate_left((S[i] + A + B), 3) */
+  tag_26
+    /* "rc5.sol":1763:1764  B */
+  dup5
+    /* "rc5.sol":1759:1760  A */
+  dup7
+    /* "rc5.sol":1752:1753  S */
+  dup9
+    /* "rc5.sol":1754:1755  i */
+  dup7
+    /* "rc5.sol":1752:1756  S[i] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_27
+  jumpi
+  invalid
+tag_27:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":1752:1760  S[i] + A */
+  add
+    /* "rc5.sol":1752:1764  S[i] + A + B */
+  add
+    /* "rc5.sol":1767:1768  3 */
+  0x03
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":1739:1750  rotate_left */
+  tag_28
+    /* "rc5.sol":1739:1769  rotate_left((S[i] + A + B), 3) */
+  and
+  jump	// in
+tag_26:
+    /* "rc5.sol":1732:1733  S */
+  dup7
+    /* "rc5.sol":1734:1735  i */
+  dup5
+    /* "rc5.sol":1732:1736  S[i] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_29
+  jumpi
+  invalid
+tag_29:
+  0x20
+  mul
+  add
+    /* "rc5.sol":1732:1769  S[i] = rotate_left((S[i] + A + B), 3) */
+  swap1
+  0xffffffff
+  and
+  swap1
+  dup2
+  0xffffffff
+  and
+  dup2
+  mstore
+  pop
+    /* "rc5.sol":1728:1769  A = S[i] = rotate_left((S[i] + A + B), 3) */
+  swap5
+  pop
+    /* "rc5.sol":1785:1819  rotate_left((L[j] + A + B), A + B) */
+  tag_30
+    /* "rc5.sol":1809:1810  B */
+  dup5
+    /* "rc5.sol":1805:1806  A */
+  dup7
+    /* "rc5.sol":1798:1799  L */
+  dup10
+    /* "rc5.sol":1800:1801  j */
+  dup6
+    /* "rc5.sol":1798:1802  L[j] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_31
+  jumpi
+  invalid
+tag_31:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":1798:1806  L[j] + A */
+  add
+    /* "rc5.sol":1798:1810  L[j] + A + B */
+  add
+    /* "rc5.sol":1813:1818  A + B */
+  dup7
+  dup7
+  add
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":1785:1796  rotate_left */
+  tag_28
+    /* "rc5.sol":1785:1819  rotate_left((L[j] + A + B), A + B) */
+  and
+  jump	// in
+tag_30:
+    /* "rc5.sol":1778:1779  L */
+  dup8
+    /* "rc5.sol":1780:1781  j */
+  dup4
+    /* "rc5.sol":1778:1782  L[j] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_32
+  jumpi
+  invalid
+tag_32:
+  0x20
+  mul
+  add
+    /* "rc5.sol":1778:1819  L[j] = rotate_left((L[j] + A + B), A + B) */
+  swap1
+  0xffffffff
+  and
+  swap1
+  dup2
+  0xffffffff
+  and
+  dup2
+  mstore
+  pop
+    /* "rc5.sol":1774:1819  B = L[j] = rotate_left((L[j] + A + B), A + B) */
+  swap4
+  pop
+    /* "rc5.sol":1834:1836  26 */
+  0x1a
+    /* "rc5.sol":1828:1831  ++i */
+  dup4
+  0x01
+  add
+  swap4
+  pop
+  dup4
+    /* "rc5.sol":1828:1836  ++i % 26 */
+  0xffffffff
+  and
+  dup2
+  tag_33
+  jumpi
+  invalid
+tag_33:
+  mod
+  swap3
+  pop
+    /* "rc5.sol":1845:1848  ++j */
+  0x01
+  swap2
+  swap1
+  swap2
+  add
+    /* "rc5.sol":1845:1852  ++j % 4 */
+  0x03
+  and
+  swap1
+    /* "rc5.sol":1707:1857  while (n-- > 0) {... */
+  jump(tag_24)
+tag_25:
+    /* "rc5.sol":1458:1860  function expand(uint32[4] memory L, uint32[26] memory S) pure internal {... */
+  pop
+  pop
+  pop
+  pop
+  pop
+  pop
+  pop
+  jump	// out
+    /* "rc5.sol":1905:2129  function test(uint32[26] memory S, uint32[4] memory messg) pure internal {... */
+tag_15:
+    /* "rc5.sol":1982:2002  uint32[4] memory tmp */
+  tag_36
+  tag_5
+  jump	// in
+tag_36:
+  pop
+    /* "rc5.sol":2005:2010  messg */
+  dup1
+    /* "rc5.sol":2014:2029  encrypt(S, tmp) */
+  tag_37
+    /* "rc5.sol":2022:2023  S */
+  dup4
+    /* "rc5.sol":2005:2010  messg */
+  dup3
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":2014:2021  encrypt */
+  tag_38
+    /* "rc5.sol":2014:2029  encrypt(S, tmp) */
+  and
+  jump	// in
+tag_37:
+    /* "rc5.sol":2033:2048  decrypt(S, tmp) */
+  tag_39
+    /* "rc5.sol":2041:2042  S */
+  dup4
+    /* "rc5.sol":2044:2047  tmp */
+  dup3
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":2033:2040  decrypt */
+  tag_40
+    /* "rc5.sol":2033:2048  decrypt(S, tmp) */
+  and
+  jump	// in
+tag_39:
+    /* "rc5.sol":2057:2063  uint i */
+  0x00
+    /* "rc5.sol":2052:2126  for (uint i = 0; i < 4; ++i) {... */
+tag_41:
+    /* "rc5.sol":2073:2074  4 */
+  0x04
+    /* "rc5.sol":2069:2070  i */
+  dup2
+    /* "rc5.sol":2069:2074  i < 4 */
+  lt
+    /* "rc5.sol":2052:2126  for (uint i = 0; i < 4; ++i) {... */
+  iszero
+  tag_42
+  jumpi
+    /* "rc5.sol":2114:2117  tmp */
+  dup2
+    /* "rc5.sol":2118:2119  i */
+  dup2
+    /* "rc5.sol":2114:2120  tmp[i] */
+  0x04
+  dup2
+  lt
+  tag_44
+  jumpi
+  invalid
+tag_44:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":2102:2120  messg[i] == tmp[i] */
+  0xffffffff
+  and
+    /* "rc5.sol":2102:2107  messg */
+  dup4
+    /* "rc5.sol":2108:2109  i */
+  dup3
+    /* "rc5.sol":2102:2110  messg[i] */
+  0x04
+  dup2
+  lt
+  tag_45
+  jumpi
+  invalid
+tag_45:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":2102:2120  messg[i] == tmp[i] */
+  0xffffffff
+  and
+  eq
+    /* "rc5.sol":2095:2121  assert(messg[i] == tmp[i]) */
+  tag_46
+  jumpi
+  invalid
+tag_46:
+    /* "rc5.sol":2076:2079  ++i */
+  0x01
+  add
+    /* "rc5.sol":2052:2126  for (uint i = 0; i < 4; ++i) {... */
+  jump(tag_41)
+tag_42:
+  pop
+    /* "rc5.sol":1905:2129  function test(uint32[26] memory S, uint32[4] memory messg) pure internal {... */
+  pop
+  pop
+  pop
+  jump	// out
+    /* "rc5.sol":357:498  function rotate_left(uint32 v, uint32 n) pure internal returns (uint32) {... */
+tag_28:
+    /* "rc5.sol":438:442  0x1f */
+  0x1f
+    /* "rc5.sol":433:442  n &= 0x1f */
+  and
+    /* "rc5.sol":421:427  uint32 */
+  0x00
+    /* "rc5.sol":472:494  shift_right(v, 32 - n) */
+  tag_48
+    /* "rc5.sol":484:485  v */
+  dup4
+    /* "rc5.sol":487:489  32 */
+  0x20
+    /* "rc5.sol":487:493  32 - n */
+  dup5
+  swap1
+  sub
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":472:483  shift_right */
+  tag_49
+    /* "rc5.sol":472:494  shift_right(v, 32 - n) */
+  and
+  jump	// in
+tag_48:
+    /* "rc5.sol":453:469  shift_left(v, n) */
+  tag_50
+    /* "rc5.sol":464:465  v */
+  dup5
+    /* "rc5.sol":467:468  n */
+  dup5
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":453:463  shift_left */
+  tag_49
+    /* "rc5.sol":453:469  shift_left(v, n) */
+  and
+  jump	// in
+tag_50:
+    /* "rc5.sol":453:494  shift_left(v, n) | shift_right(v, 32 - n) */
+  or
+  swap4
+    /* "rc5.sol":357:498  function rotate_left(uint32 v, uint32 n) pure internal returns (uint32) {... */
+  swap3
+  pop
+  pop
+  pop
+  jump	// out
+    /* "rc5.sol":647:1014  function encrypt(uint32[26] memory S, uint32[4] memory inout) pure internal {... */
+tag_38:
+    /* "rc5.sol":732:740  uint32 i */
+  0x00
+    /* "rc5.sol":727:1011  for (uint32 i = 0; i < 4; i += 2) {... */
+tag_53:
+    /* "rc5.sol":750:751  4 */
+  0x04
+    /* "rc5.sol":746:747  i */
+  dup2
+    /* "rc5.sol":746:751  i < 4 */
+  0xffffffff
+  and
+  lt
+    /* "rc5.sol":727:1011  for (uint32 i = 0; i < 4; i += 2) {... */
+  iszero
+  tag_54
+  jumpi
+    /* "rc5.sol":766:774  uint32 A */
+  0x00
+    /* "rc5.sol":777:782  inout */
+  dup3
+    /* "rc5.sol":783:784  i */
+  dup3
+    /* "rc5.sol":777:785  inout[i] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_56
+  jumpi
+  invalid
+tag_56:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":766:785  uint32 A = inout[i] */
+  swap1
+  pop
+    /* "rc5.sol":790:798  uint32 B */
+  0x00
+    /* "rc5.sol":801:806  inout */
+  dup4
+    /* "rc5.sol":807:808  i */
+  dup4
+    /* "rc5.sol":809:810  1 */
+  0x01
+    /* "rc5.sol":807:810  i+1 */
+  add
+    /* "rc5.sol":801:811  inout[i+1] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_57
+  jumpi
+  invalid
+tag_57:
+  0x20
+  swap1
+  dup2
+  mul
+  swap2
+  swap1
+  swap2
+  add
+  mload
+    /* "rc5.sol":821:825  S[0] */
+  dup7
+  mload
+    /* "rc5.sol":835:839  S[1] */
+  swap2
+  dup8
+  add
+  mload
+    /* "rc5.sol":816:825  A += S[0] */
+  swap4
+  swap1
+  swap2
+  add
+  swap3
+    /* "rc5.sol":830:839  B += S[1] */
+  add
+  swap1
+  pop
+    /* "rc5.sol":823:824  0 */
+  0x00
+    /* "rc5.sol":844:971  for (int j = 0; j < 12; ++j) {... */
+tag_60:
+    /* "rc5.sol":864:866  12 */
+  0x0c
+    /* "rc5.sol":860:861  j */
+  dup2
+    /* "rc5.sol":860:866  j < 12 */
+  slt
+    /* "rc5.sol":844:971  for (int j = 0; j < 12; ++j) {... */
+  iszero
+  tag_61
+  jumpi
+    /* "rc5.sol":909:910  S */
+  dup6
+    /* "rc5.sol":915:916  i */
+  dup5
+    /* "rc5.sol":911:912  2 */
+  0x02
+    /* "rc5.sol":911:916  2 * i */
+  mul
+    /* "rc5.sol":909:917  S[2 * i] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_63
+  jumpi
+  invalid
+tag_63:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":883:906  rotate_left((A ^ B), B) */
+  tag_64
+    /* "rc5.sol":896:901  A ^ B */
+  dup5
+  dup5
+  xor
+    /* "rc5.sol":900:901  B */
+  dup5
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":883:894  rotate_left */
+  tag_28
+    /* "rc5.sol":883:906  rotate_left((A ^ B), B) */
+  and
+  jump	// in
+tag_64:
+    /* "rc5.sol":883:917  rotate_left((A ^ B), B) + S[2 * i] */
+  add
+    /* "rc5.sol":879:917  A = rotate_left((A ^ B), B) + S[2 * i] */
+  swap3
+  pop
+    /* "rc5.sol":953:954  S */
+  dup6
+    /* "rc5.sol":959:960  i */
+  dup5
+    /* "rc5.sol":955:956  2 */
+  0x02
+    /* "rc5.sol":955:960  2 * i */
+  mul
+    /* "rc5.sol":963:964  1 */
+  0x01
+    /* "rc5.sol":955:964  2 * i + 1 */
+  add
+    /* "rc5.sol":953:965  S[2 * i + 1] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_65
+  jumpi
+  invalid
+tag_65:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":927:950  rotate_left((B ^ A), A) */
+  tag_66
+    /* "rc5.sol":940:945  B ^ A */
+  dup4
+  dup6
+  xor
+    /* "rc5.sol":944:945  A */
+  dup6
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":927:938  rotate_left */
+  tag_28
+    /* "rc5.sol":927:950  rotate_left((B ^ A), A) */
+  and
+  jump	// in
+tag_66:
+    /* "rc5.sol":927:965  rotate_left((B ^ A), A) + S[2 * i + 1] */
+  add
+  swap2
+  pop
+    /* "rc5.sol":868:871  ++j */
+  0x01
+  add
+    /* "rc5.sol":844:971  for (int j = 0; j < 12; ++j) {... */
+  jump(tag_60)
+tag_61:
+  pop
+    /* "rc5.sol":986:987  A */
+  dup2
+    /* "rc5.sol":975:980  inout */
+  dup5
+    /* "rc5.sol":981:982  i */
+  dup5
+    /* "rc5.sol":975:983  inout[i] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_67
+  jumpi
+  invalid
+tag_67:
+  0x20
+  mul
+  add
+    /* "rc5.sol":975:987  inout[i] = A */
+  swap1
+  0xffffffff
+  and
+  swap1
+  dup2
+  0xffffffff
+  and
+  dup2
+  mstore
+  pop
+  pop
+    /* "rc5.sol":1005:1006  B */
+  dup1
+    /* "rc5.sol":992:997  inout */
+  dup5
+    /* "rc5.sol":998:999  i */
+  dup5
+    /* "rc5.sol":1000:1001  1 */
+  0x01
+    /* "rc5.sol":998:1001  i+1 */
+  add
+    /* "rc5.sol":992:1002  inout[i+1] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_68
+  jumpi
+  invalid
+tag_68:
+    /* "rc5.sol":992:1006  inout[i+1] = B */
+  0xffffffff
+  swap1
+  swap3
+  and
+    /* "rc5.sol":992:1002  inout[i+1] */
+  0x20
+  swap3
+  swap1
+  swap3
+  mul
+  add
+    /* "rc5.sol":992:1006  inout[i+1] = B */
+  mstore
+  pop
+  pop
+    /* "rc5.sol":758:759  2 */
+  0x02
+    /* "rc5.sol":753:759  i += 2 */
+  add
+    /* "rc5.sol":727:1011  for (uint32 i = 0; i < 4; i += 2) {... */
+  jump(tag_53)
+tag_54:
+  pop
+    /* "rc5.sol":647:1014  function encrypt(uint32[26] memory S, uint32[4] memory inout) pure internal {... */
+  pop
+  pop
+  jump	// out
+    /* "rc5.sol":1017:1382  function decrypt(uint32[26] memory S, uint32[4] memory inout) pure internal {... */
+tag_40:
+    /* "rc5.sol":1102:1110  uint32 i */
+  0x00
+    /* "rc5.sol":1097:1379  for (uint32 i = 0; i < 4; i += 2) {... */
+tag_70:
+    /* "rc5.sol":1120:1121  4 */
+  0x04
+    /* "rc5.sol":1116:1117  i */
+  dup2
+    /* "rc5.sol":1116:1121  i < 4 */
+  0xffffffff
+  and
+  lt
+    /* "rc5.sol":1097:1379  for (uint32 i = 0; i < 4; i += 2) {... */
+  iszero
+  tag_54
+  jumpi
+    /* "rc5.sol":1136:1144  uint32 A */
+  0x00
+    /* "rc5.sol":1147:1152  inout */
+  dup3
+    /* "rc5.sol":1153:1154  i */
+  dup3
+    /* "rc5.sol":1147:1155  inout[i] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_73
+  jumpi
+  invalid
+tag_73:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":1136:1155  uint32 A = inout[i] */
+  swap1
+  pop
+    /* "rc5.sol":1160:1168  uint32 B */
+  0x00
+    /* "rc5.sol":1171:1176  inout */
+  dup4
+    /* "rc5.sol":1177:1178  i */
+  dup4
+    /* "rc5.sol":1179:1180  1 */
+  0x01
+    /* "rc5.sol":1177:1180  i+1 */
+  add
+    /* "rc5.sol":1171:1181  inout[i+1] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_74
+  jumpi
+  invalid
+tag_74:
+  0x20
+  mul
+  add
+  mload
+  swap1
+  pop
+    /* "rc5.sol":1199:1201  12 */
+  0x0c
+    /* "rc5.sol":1186:1311  for (int j = 12; j > 0; --j) {... */
+tag_75:
+    /* "rc5.sol":1207:1208  0 */
+  0x00
+    /* "rc5.sol":1203:1204  j */
+  dup2
+    /* "rc5.sol":1203:1208  j > 0 */
+  sgt
+    /* "rc5.sol":1186:1311  for (int j = 12; j > 0; --j) {... */
+  iszero
+  tag_76
+  jumpi
+    /* "rc5.sol":1261:1262  A */
+  dup3
+    /* "rc5.sol":1225:1258  rotate_right(B - S[2 * i + 1], A) */
+  tag_78
+    /* "rc5.sol":1242:1243  S */
+  dup8
+    /* "rc5.sol":1248:1249  i */
+  dup7
+    /* "rc5.sol":1244:1245  2 */
+  0x02
+    /* "rc5.sol":1244:1249  2 * i */
+  mul
+    /* "rc5.sol":1252:1253  1 */
+  0x01
+    /* "rc5.sol":1244:1253  2 * i + 1 */
+  add
+    /* "rc5.sol":1242:1254  S[2 * i + 1] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_79
+  jumpi
+  invalid
+tag_79:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":1238:1254  B - S[2 * i + 1] */
+  dup5
+  sub
+    /* "rc5.sol":1256:1257  A */
+  dup6
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":1225:1237  rotate_right */
+  tag_28
+    /* "rc5.sol":1225:1258  rotate_right(B - S[2 * i + 1], A) */
+  and
+  jump	// in
+tag_78:
+    /* "rc5.sol":1225:1262  rotate_right(B - S[2 * i + 1], A) ^ A */
+  xor
+    /* "rc5.sol":1221:1262  B = rotate_right(B - S[2 * i + 1], A) ^ A */
+  swap2
+  pop
+    /* "rc5.sol":1304:1305  B */
+  dup2
+    /* "rc5.sol":1272:1301  rotate_right(A - S[2 * i], B) */
+  tag_81
+    /* "rc5.sol":1289:1290  S */
+  dup8
+    /* "rc5.sol":1295:1296  i */
+  dup7
+    /* "rc5.sol":1291:1292  2 */
+  0x02
+    /* "rc5.sol":1291:1296  2 * i */
+  mul
+    /* "rc5.sol":1289:1297  S[2 * i] */
+  0xffffffff
+  and
+  0x1a
+  dup2
+  lt
+  tag_82
+  jumpi
+  invalid
+tag_82:
+  0x20
+  mul
+  add
+  mload
+    /* "rc5.sol":1285:1297  A - S[2 * i] */
+  dup6
+  sub
+    /* "rc5.sol":1299:1300  B */
+  dup5
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "rc5.sol":1272:1284  rotate_right */
+  tag_28
+    /* "rc5.sol":1272:1301  rotate_right(A - S[2 * i], B) */
+  and
+  jump	// in
+tag_81:
+    /* "rc5.sol":1272:1305  rotate_right(A - S[2 * i], B) ^ B */
+  xor
+  swap3
+  pop
+  not(0x00)
+    /* "rc5.sol":1210:1213  --j */
+  add
+    /* "rc5.sol":1186:1311  for (int j = 12; j > 0; --j) {... */
+  jump(tag_75)
+tag_76:
+  pop
+    /* "rc5.sol":1320:1324  S[1] */
+  0x20
+  dup6
+  add
+  mload
+    /* "rc5.sol":1334:1338  S[0] */
+  dup6
+  mload
+    /* "rc5.sol":1329:1338  A -= S[0] */
+  swap1
+  swap3
+  sub
+  swap2
+    /* "rc5.sol":1315:1324  B -= S[1] */
+  swap1
+  sub
+    /* "rc5.sol":1329:1338  A -= S[0] */
+  dup2
+    /* "rc5.sol":1343:1348  inout */
+  dup5
+    /* "rc5.sol":1343:1351  inout[i] */
+  0xffffffff
+  dup6
+  and
+  0x04
+  dup2
+  lt
+  tag_85
+  jumpi
+  invalid
+tag_85:
+  0x20
+  mul
+  add
+    /* "rc5.sol":1343:1355  inout[i] = A */
+  swap1
+  0xffffffff
+  and
+  swap1
+  dup2
+  0xffffffff
+  and
+  dup2
+  mstore
+  pop
+  pop
+    /* "rc5.sol":1373:1374  B */
+  dup1
+    /* "rc5.sol":1360:1365  inout */
+  dup5
+    /* "rc5.sol":1366:1367  i */
+  dup5
+    /* "rc5.sol":1368:1369  1 */
+  0x01
+    /* "rc5.sol":1366:1369  i+1 */
+  add
+    /* "rc5.sol":1360:1370  inout[i+1] */
+  0xffffffff
+  and
+  0x04
+  dup2
+  lt
+  tag_86
+  jumpi
+  invalid
+tag_86:
+    /* "rc5.sol":1360:1374  inout[i+1] = B */
+  0xffffffff
+  swap1
+  swap3
+  and
+    /* "rc5.sol":1360:1370  inout[i+1] */
+  0x20
+  swap3
+  swap1
+  swap3
+  mul
+  add
+    /* "rc5.sol":1360:1374  inout[i+1] = B */
+  mstore
+  pop
+  pop
+    /* "rc5.sol":1128:1129  2 */
+  0x02
+    /* "rc5.sol":1123:1129  i += 2 */
+  add
+    /* "rc5.sol":1097:1379  for (uint32 i = 0; i < 4; i += 2) {... */
+  jump(tag_70)
+    /* "rc5.sol":256:353  function shift_right(uint32 v, uint32 n) pure internal returns (uint32) {... */
+tag_49:
+    /* "rc5.sol":343:349  v >> n */
+  0xffffffff
+  swap2
+  dup3
+  and
+  swap2
+  and
+  shr
+  swap1
+    /* "rc5.sol":256:353  function shift_right(uint32 v, uint32 n) pure internal returns (uint32) {... */
+  jump	// out
+    /* "rc5.sol":82:2414  contract rc5 {... */
+tag_5:
+  mload(0x40)
+  dup1
+  0x80
+  add
+  0x40
+  mstore
+  dup1
+  0x04
+  swap1
+    /* "--CODEGEN--":29:31   */
+  0x20
+    /* "--CODEGEN--":21:27   */
+  dup3
+    /* "--CODEGEN--":17:32   */
+  mul
+    /* "--CODEGEN--":117:121   */
+  dup1
+    /* "--CODEGEN--":105:115   */
+  codesize
+    /* "--CODEGEN--":97:103   */
+  dup4
+    /* "--CODEGEN--":88:122   */
+  codecopy
+  pop
+    /* "rc5.sol":82:2414  contract rc5 {... */
+  swap2
+  swap3
+  swap2
+  pop
+  pop
+  jump	// out
+tag_7:
+  mload(0x40)
+  dup1
+  0x0340
+  add
+  0x40
+  mstore
+  dup1
+  0x1a
+  swap1
+    /* "--CODEGEN--":29:31   */
+  0x20
+    /* "--CODEGEN--":21:27   */
+  dup3
+    /* "--CODEGEN--":17:32   */
+  mul
+    /* "--CODEGEN--":117:121   */
+  dup1
+    /* "--CODEGEN--":105:115   */
+  codesize
+    /* "--CODEGEN--":97:103   */
+  dup4
+    /* "--CODEGEN--":88:122   */
+  codecopy
+  pop
+    /* "rc5.sol":82:2414  contract rc5 {... */
+  swap2
+  swap3
+  swap2
+  pop
+  pop
+  jump	// out
+tag_16:
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "rc5.sol":82:2414  contract rc5 {... */
+      mstore(0x40, 0x80)
+      0x00
+      dup1
+      revert
+
+    auxdata: 0xa265627a7a72305820d9481e6e437fc0d4f8fce0f6acf7bfbea61fb0bb1223baa8e308aeb8b3f1d1cb64736f6c63430005090032
+}

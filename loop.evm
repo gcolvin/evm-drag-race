@@ -1,0 +1,62 @@
+    /* "loop.sol":24:134  contract loop {... */
+  mstore(0x40, 0x80)
+    /* "loop.sol":49:132  constructor() public {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+  pop
+    /* "loop.sol":76:81  int i */
+  0x00
+    /* "loop.sol":85:120  for (i = 0; i < 1048576; ++i) {... */
+tag_4:
+    /* "loop.sol":101:108  1048576 */
+  0x100000
+    /* "loop.sol":97:98  i */
+  dup2
+    /* "loop.sol":97:108  i < 1048576 */
+  slt
+    /* "loop.sol":85:120  for (i = 0; i < 1048576; ++i) {... */
+  iszero
+  tag_5
+  jumpi
+    /* "loop.sol":110:113  ++i */
+  0x01
+  add
+    /* "loop.sol":85:120  for (i = 0; i < 1048576; ++i) {... */
+  jump(tag_4)
+tag_5:
+    /* "loop.sol":123:124  N */
+  0x00
+    /* "loop.sol":123:128  N = i */
+  sstore
+    /* "loop.sol":24:134  contract loop {... */
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "loop.sol":24:134  contract loop {... */
+      mstore(0x40, 0x80)
+      0x00
+      dup1
+      revert
+
+    auxdata: 0xa265627a7a7230582057d5734aa9459e1e97b9eaf336edc30b12911be7f5ef636336d2dbf6aedffeef64736f6c63430005090032
+}

@@ -1,0 +1,229 @@
+    /* "rng.sol":24:756  contract rng {... */
+  mstore(0x40, 0x80)
+    /* "rng.sol":41:754  constructor() public {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+    /* "rng.sol":41:754  constructor() public {... */
+  pop
+    /* "rng.sol":108:130  uint256[32] memory out */
+  tag_4
+  tag_5
+  jump	// in
+tag_4:
+    /* "rng.sol":138:149  uint256 mix */
+  0x00
+    /* "rng.sol":152:161  gasleft() */
+  gas
+    /* "rng.sol":138:161  uint256 mix = gasleft() */
+  swap1
+  pop
+    /* "rng.sol":321:339  0xbfb9e9cfa0a26397 */
+  0xbfb9e9cfa0a26397
+    /* "rng.sol":359:377  0xf965dcb10cd35adb */
+  0xf965dcb10cd35adb
+    /* "rng.sol":400:405  p * q */
+  0xbac81e0c903c6ac59956a501ab63482d
+    /* "rng.sol":428:446  0xfdf63130357d68d7 */
+  0xfdf63130357d68d7
+    /* "rng.sol":309:318  uint256 p */
+  0x00
+    /* "rng.sol":455:749  for (uint256 i = 0; i < 4096; ++i) {... */
+tag_6:
+    /* "rng.sol":479:483  4096 */
+  0x1000
+    /* "rng.sol":475:476  i */
+  dup2
+    /* "rng.sol":475:483  i < 4096 */
+  lt
+    /* "rng.sol":455:749  for (uint256 i = 0; i < 4096; ++i) {... */
+  iszero
+  tag_7
+  jumpi
+    /* "rng.sol":501:512  uint256 bbs */
+  0x00
+  dup1
+    /* "rng.sol":547:688  for (j = 0; j < 256; ++j) {... */
+tag_9:
+    /* "rng.sol":563:566  256 */
+  0x0100
+    /* "rng.sol":559:560  j */
+  dup2
+    /* "rng.sol":559:566  j < 256 */
+  lt
+    /* "rng.sol":547:688  for (j = 0; j < 256; ++j) {... */
+  iszero
+  tag_10
+  jumpi
+    /* "rng.sol":587:599  blum *= blum */
+  swap4
+  dup1
+  mul
+  swap4
+    /* "rng.sol":621:625  shub */
+  dup4
+    /* "rng.sol":587:599  blum *= blum */
+  dup6
+    /* "rng.sol":621:625  shub */
+  dup2
+    /* "rng.sol":613:625  blum %= shub */
+  tag_12
+  jumpi
+  invalid
+tag_12:
+  mod
+  swap5
+  pop
+    /* "rng.sol":653:654  1 */
+  0x01
+    /* "rng.sol":646:654  blum & 1 */
+  dup1
+  dup7
+  and
+    /* "rng.sol":639:654  bbs |= blum & 1 */
+  swap3
+  swap1
+  swap3
+  or
+  swap2
+    /* "rng.sol":568:571  ++j */
+  add
+    /* "rng.sol":547:688  for (j = 0; j < 256; ++j) {... */
+  jump(tag_9)
+tag_10:
+    /* "rng.sol":707:710  bbs */
+  dup2
+    /* "rng.sol":698:701  out */
+  dup10
+    /* "rng.sol":702:703  j */
+  dup3
+    /* "rng.sol":698:704  out[j] */
+  0x20
+  dup2
+  lt
+  tag_13
+  jumpi
+  invalid
+tag_13:
+  0x20
+  mul
+  add
+    /* "rng.sol":698:710  out[j] = bbs */
+  dup2
+  dup2
+  mstore
+  pop
+  pop
+    /* "rng.sol":727:730  out */
+  dup9
+    /* "rng.sol":737:739  32 */
+  0x20
+    /* "rng.sol":731:734  bbs */
+  dup4
+    /* "rng.sol":731:739  bbs % 32 */
+  dup2
+  tag_14
+  jumpi
+  invalid
+tag_14:
+  mod
+    /* "rng.sol":727:740  out[bbs % 32] */
+  0x20
+  dup2
+  lt
+  tag_15
+  jumpi
+  invalid
+tag_15:
+  0x20
+  mul
+  add
+  mload
+    /* "rng.sol":721:740  mix = out[bbs % 32] */
+  swap8
+  pop
+    /* "rng.sol":455:749  for (uint256 i = 0; i < 4096; ++i) {... */
+  pop
+  pop
+    /* "rng.sol":485:488  ++i */
+  dup1
+  0x01
+  add
+  swap1
+  pop
+    /* "rng.sol":455:749  for (uint256 i = 0; i < 4096; ++i) {... */
+  jump(tag_6)
+tag_7:
+  pop
+    /* "rng.sol":41:754  constructor() public {... */
+  pop
+  pop
+  pop
+  pop
+  pop
+  pop
+    /* "rng.sol":24:756  contract rng {... */
+  jump(tag_16)
+tag_5:
+  mload(0x40)
+  dup1
+  0x0400
+  add
+  0x40
+  mstore
+  dup1
+  0x20
+  swap1
+    /* "--CODEGEN--":29:31   */
+  0x20
+    /* "--CODEGEN--":21:27   */
+  dup3
+    /* "--CODEGEN--":17:32   */
+  mul
+    /* "--CODEGEN--":117:121   */
+  dup1
+    /* "--CODEGEN--":105:115   */
+  codesize
+    /* "--CODEGEN--":97:103   */
+  dup4
+    /* "--CODEGEN--":88:122   */
+  codecopy
+  pop
+    /* "rng.sol":24:756  contract rng {... */
+  swap2
+  swap3
+  swap2
+  pop
+  pop
+  jump	// out
+tag_16:
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "rng.sol":24:756  contract rng {... */
+      mstore(0x40, 0x80)
+      0x00
+      dup1
+      revert
+
+    auxdata: 0xa265627a7a723058201682c28f6be298c7687885014c754d379a51ae443140f1be6b13f21f1ca0ca8964736f6c63430005090032
+}

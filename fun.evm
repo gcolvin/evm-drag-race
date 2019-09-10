@@ -1,0 +1,182 @@
+    /* "fun.sol":24:587  contract fun {... */
+  mstore(0x40, 0x80)
+    /* "fun.sol":477:585  constructor() public {... */
+  callvalue
+    /* "--CODEGEN--":8:17   */
+  dup1
+    /* "--CODEGEN--":5:7   */
+  iszero
+  tag_1
+  jumpi
+    /* "--CODEGEN--":30:31   */
+  0x00
+    /* "--CODEGEN--":27:28   */
+  dup1
+    /* "--CODEGEN--":20:32   */
+  revert
+    /* "--CODEGEN--":5:7   */
+tag_1:
+  pop
+    /* "fun.sol":507:513  uint i */
+  0x00
+    /* "fun.sol":502:582  for (uint i = 0; i < 65536; ++i) {... */
+tag_4:
+    /* "fun.sol":523:528  65536 */
+  0x010000
+    /* "fun.sol":519:520  i */
+  dup2
+    /* "fun.sol":519:528  i < 65536 */
+  lt
+    /* "fun.sol":502:582  for (uint i = 0; i < 65536; ++i) {... */
+  iszero
+  tag_5
+  jumpi
+    /* "fun.sol":549:550  i */
+  dup1
+  dup1
+    /* "fun.sol":570:577  f(x, y) */
+  tag_7
+    /* "fun.sol":549:550  i */
+  dup2
+  dup1
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":570:571  f */
+  tag_8
+    /* "fun.sol":570:577  f(x, y) */
+  and
+  jump	// in
+tag_7:
+  pop
+  pop
+    /* "fun.sol":530:533  ++i */
+  0x01
+  add
+    /* "fun.sol":502:582  for (uint i = 0; i < 65536; ++i) {... */
+  jump(tag_4)
+tag_5:
+  pop
+    /* "fun.sol":24:587  contract fun {... */
+  jump(tag_9)
+    /* "fun.sol":405:474  function f(uint top1, uint top2) private {... */
+tag_8:
+    /* "fun.sol":450:458  f1(top1) */
+  tag_11
+    /* "fun.sol":453:457  top1 */
+  dup3
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":450:452  f1 */
+  tag_12
+    /* "fun.sol":450:458  f1(top1) */
+  and
+  jump	// in
+tag_11:
+    /* "fun.sol":462:470  f2(top2) */
+  tag_13
+    /* "fun.sol":465:469  top2 */
+  dup2
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":462:464  f2 */
+  tag_14
+    /* "fun.sol":462:470  f2(top2) */
+  and
+  jump	// in
+tag_13:
+    /* "fun.sol":405:474  function f(uint top1, uint top2) private {... */
+  pop
+  pop
+  jump	// out
+    /* "fun.sol":171:229  function f1(uint top) private {... */
+tag_12:
+    /* "fun.sol":205:213  f1A(top) */
+  tag_16
+    /* "fun.sol":209:212  top */
+  dup2
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":205:208  f1A */
+  tag_17
+    /* "fun.sol":205:213  f1A(top) */
+  and
+  jump	// in
+tag_16:
+    /* "fun.sol":217:225  f1B(top) */
+  tag_18
+    /* "fun.sol":221:224  top */
+  dup2
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":217:220  f1B */
+  tag_17
+    /* "fun.sol":217:225  f1B(top) */
+  and
+  jump	// in
+tag_18:
+    /* "fun.sol":171:229  function f1(uint top) private {... */
+  pop
+  jump	// out
+    /* "fun.sol":344:402  function f2(uint top) private {... */
+tag_14:
+    /* "fun.sol":378:386  f2A(top) */
+  tag_21
+    /* "fun.sol":382:385  top */
+  dup2
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":378:381  f2A */
+  tag_22
+    /* "fun.sol":378:386  f2A(top) */
+  and
+  jump	// in
+tag_21:
+    /* "fun.sol":390:398  f2B(top) */
+  tag_18
+    /* "fun.sol":394:397  top */
+  dup2
+  sub(shl(0xe0, 0x01), 0x01)
+    /* "fun.sol":390:393  f2B */
+  tag_22
+    /* "fun.sol":390:398  f2B(top) */
+  and
+  jump	// in
+    /* "fun.sol":59:113  function f1A(uint top) private {... */
+tag_17:
+    /* "fun.sol":106:109  top */
+  dup1
+    /* "fun.sol":94:100  bottom */
+  0x00
+  dup1
+    /* "fun.sol":94:103  bottom[0] */
+tag_26:
+  add
+    /* "fun.sol":94:109  bottom[0] = top */
+  sstore
+  pop
+    /* "fun.sol":59:113  function f1A(uint top) private {... */
+  jump	// out
+    /* "fun.sol":232:286  function f2A(uint top) private {... */
+tag_22:
+    /* "fun.sol":279:282  top */
+  dup1
+    /* "fun.sol":267:273  bottom */
+  0x00
+    /* "fun.sol":274:275  1 */
+  0x01
+    /* "fun.sol":267:276  bottom[1] */
+  jump(tag_26)
+    /* "fun.sol":24:587  contract fun {... */
+tag_9:
+  dataSize(sub_0)
+  dup1
+  dataOffset(sub_0)
+  0x00
+  codecopy
+  0x00
+  return
+stop
+
+sub_0: assembly {
+        /* "fun.sol":24:587  contract fun {... */
+      mstore(0x40, 0x80)
+      0x00
+      dup1
+      revert
+
+    auxdata: 0xa265627a7a723058201ab913e9b290139580aeee5a852a026e4d5505566a9afca03494f4083ab2610564736f6c63430005090032
+}
