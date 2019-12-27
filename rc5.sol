@@ -30,9 +30,9 @@ contract rc5 {
 			uint32 B = inout[i+1];
 			A += S[0];
 			B += S[1];
-			for (int j = 0; j < 12; ++j) {
-				A = rotate_left((A ^ B), B) + S[2 * i];
-				B = rotate_left((B ^ A), A) + S[2 * i + 1];
+			for (int j = 1; j <=12; ++j) {
+				A = rotate_left((A ^ B), B) + S[2 * j];
+				B = rotate_left((B ^ A), A) + S[2 * j + 1];
 			}
 			inout[i] = A;
 			inout[i+1] = B;
@@ -44,8 +44,8 @@ contract rc5 {
 			uint32 A = inout[i];
 			uint32 B = inout[i+1];
 			for (int j = 12; j > 0; --j) {
-				B = rotate_right(B - S[2 * i + 1], A) ^ A;
-				A = rotate_right(A - S[2 * i], B) ^ B;
+				B = rotate_right(B - S[2 * j + 1], A) ^ A;
+				A = rotate_right(A - S[2 * j], B) ^ B;
 			}
 			B -= S[1];
 			A -= S[0];
